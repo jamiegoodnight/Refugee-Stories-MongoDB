@@ -23,13 +23,13 @@ router
   .post(async ({ body: { title, story, highlight }, params: { id } }, res) => {
     if (title && story && highlight) {
       try {
-        const newId = await actions.approveStory(id, {
+        const updatedStory = await actions.approveStory(id, {
           title,
           story,
           highlight
         });
-        if (newId) {
-          res.status(201).json({ newStoryID: newId });
+        if (updatedStory) {
+          res.status(201).json(updatedStory);
         } else {
           res.status(404).json({ message: "The story could not be found." });
         }

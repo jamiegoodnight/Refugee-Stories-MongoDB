@@ -6,16 +6,8 @@ module.exports = {
   getLatestStories
 };
 
-function addStory(story) {
-  return db("pending_stories").insert(story);
-}
+function addStory(story) {}
 
-function getAllStories() {
-  return db("stories").orderBy("id", "desc");
-}
+function getAllStories() {}
 
-function getLatestStories() {
-  return db("stories")
-    .limit(3)
-    .orderBy("id", "desc");
-}
+function getLatestStories() {}

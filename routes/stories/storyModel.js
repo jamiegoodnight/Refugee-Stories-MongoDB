@@ -11,11 +11,11 @@ function addStory(story) {
 }
 
 function getAllStories() {
-  return Story.find({ verified: false }).exec();
+  return Story.find({ verified: true }).exec();
 }
 
 function getLatestStories() {
-  return Story.find({ verified: false })
+  return Story.find({ verified: true })
     .limit(3)
     .sort({ _id: -1 })
     .exec();

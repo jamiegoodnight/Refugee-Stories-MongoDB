@@ -1,4 +1,4 @@
-const db = require("../../data/config");
+const Story = require("./storySchema");
 
 module.exports = {
   addStory,
@@ -6,8 +6,17 @@ module.exports = {
   getLatestStories
 };
 
-function addStory(story) {}
+function addStory(story) {
+  return Story.create(story);
+}
 
-function getAllStories() {}
+function getAllStories() {
+  return Story.find({ verified: false }).exec();
+}
 
-function getLatestStories() {}
+function getLatestStories() {
+  return Story.find({ verified: false })
+    .limit(3)
+    .sort({ _id: -1 })
+    .exec();
+}

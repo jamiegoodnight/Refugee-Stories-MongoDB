@@ -19,8 +19,8 @@ router
   .post(async ({ body: { story, title } }, res) => {
     if (story && title) {
       try {
-        const [id] = await actions.addStory({ story, title });
-        res.status(201).json({ id });
+        const newStory = await actions.addStory({ story, title });
+        res.status(201).json(newStory);
       } catch (error) {
         res.status(500).json({
           message: "Something went wrong submitting the story.",

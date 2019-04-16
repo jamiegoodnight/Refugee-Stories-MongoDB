@@ -1,4 +1,4 @@
-const db = require("../../data/config");
+const mongoose = require("mongoose");
 
 module.exports = {
   approveStory,
